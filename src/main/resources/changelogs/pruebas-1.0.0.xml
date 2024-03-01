@@ -13,4 +13,17 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="create-gitano-table" author="eaviles">
+        <createTable tableName="gitano">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nombre" type="varchar(100)"/>
+            <column name="apellido" type="varchar(100)"/>
+            <column name="edad" type="int8"/>
+            <column name="hijos" type="int8"/>
+            <column name="delitos" type="int8"/>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
