@@ -3,28 +3,47 @@ package com.prueba.controller;
 import com.prueba.model.Gitano;
 import com.prueba.service.GitanoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/gitano")
 public class GitanoController {
 
     @Autowired
-    GitanoService gitanoService;
+    private GitanoService gitanoService;
 
-    @GetMapping("/delitos")
-    public int getGitanoDelitosPorApellido() {
-        Gitano gitano = gitanoService.getGitanoApellido();
-        return gitano.getDelitos();
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    public List<Gitano> getAllGitano() {
+        return gitanoService.getAllGitano();
     }
 
-    @GetMapping("/nombre")
-    public String getGitanoNombre() {
-        Gitano gitano = gitanoService.getGitanoApellido();
-        return gitano.getNombre();
+    @GetMapping("/{id}")
+    public Optional<Gitano> getGitanoById(@PathVariable Long id) {
+        return gitanoService.getGitanoById(id);
+    }
+
+    @PostMapping("/")
+    public Gitano saveGitano(@RequestBody Gitano gitano) {
+        return gitanoService.saveGitano(gitano);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteGitano(@PathVariable Long id) {
+        gitanoService.deleteGitano(id);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Gitano> updateGitano(@PathVariable Long id, @RequestBody Gitano updatedGitano) {
+        Gitano updatedEntity = gitanoService.updateGitano(id, updatedGitano);
+        if (updatedEntity != null) {
+            return ResponseEntity.ok(updatedEntity);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

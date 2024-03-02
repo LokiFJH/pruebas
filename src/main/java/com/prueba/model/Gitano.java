@@ -2,25 +2,29 @@ package com.prueba.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
 @Data
+@Entity
 @Table(name="gitano")
 public class Gitano {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "nombre")
-    String nombre = null;
+    private String nombre = null;
 
     @Column(name = "apellido")
-    String appelido = null;
+    private String apellido = null;
 
     @Column(name = "edad")
-    int edad = 0;
+    private int edad = 0;
 
     @Column(name = "hijos")
-    int hijos = 0;
+    private int hijos = 0;
 
     @Column(name = "delitos")
-    int delitos = 0;
+    private int delitos = 0;
 }

@@ -1,12 +1,10 @@
-package com.prueba.boot;
+package com.prueba;
 
-import com.prueba.model.Gitano;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan("com.prueba")
 public class PruebaApplication {
 
 	public static void main(String[] args) {
