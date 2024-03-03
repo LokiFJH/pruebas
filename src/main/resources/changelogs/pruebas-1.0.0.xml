@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="create-table-example" author="eaviles">
+        <createTable tableName="example_table">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-gitano-table" author="eaviles">
+        <createTable tableName="gitano">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nombre" type="varchar(100)"/>
+            <column name="apellido" type="varchar(100)"/>
+            <column name="edad" type="int8"/>
+            <column name="hijos" type="int8"/>
+            <column name="delitos" type="int8"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-reminder-table" author="gitanomaster">
+        <createTable tableName="recordatorios">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nombre" type="varchar(100)"/>
+            <column name="estado" type="int8"/>
+            <column name="categoria" type="varchar(100)"/>
+            <column name="orden" type="int8"/>
+            <column name="prioridad" type="int8"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
