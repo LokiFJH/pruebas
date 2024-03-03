@@ -1,0 +1,5 @@
+.app-container {
+    margin: 0 auto; /* Auto margins center the container horizontally */
+    max-width: 1200px; /* Optionally, set a maximum width for the container */
+    padding: 0 20px; /* Add padding to create spacing on the sides */
+  }
