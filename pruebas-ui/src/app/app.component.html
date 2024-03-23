@@ -1,22 +1,23 @@
 <h1>Recordatorios</h1>
 
 <div class="app-container">
-  <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="reminders" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Prioridad</th>
+            <th>Estado</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product>
+    <ng-template pTemplate="body" let-reminder>
         <tr>
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.quantity }}</td>
+            <td>{{ reminder.nombre }}</td>
+            <td>{{ reminder.categoria }}</td>
+            <td>{{ reminder.prioridad }}</td>
+            <td>{{ reminder.estado }}</td>
         </tr>
     </ng-template>
   </p-table>
+  <button type="submit" (click)="addReminder()">Añadir</button>
 </div>

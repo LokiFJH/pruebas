@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'pruebas-ui';
 
   products = [
-    {"code": 123, "name": "Nombre", "category": "Categoria", "quantity": 213},
+    {"code": 123, "name": "patata", "category": "", "quantity": 0},
     {"code": 123, "name": "Nombre", "category": "Categoria", "quantity": 213}
   ];
 
@@ -22,16 +22,24 @@ export class AppComponent {
   ngOnInit() {
     this.primengConfig.ripple = true;
     this.loadReminders();
+    console.log(this.reminders)
   }
 
   loadReminders() {
     this.reminderService.getReminders().subscribe(
       (reminders) => {
+        console.log("recordatorios");
+        console.log(reminders)
         this.reminders = reminders;
+        
       },
       (error) => {
         console.error('Error loading reminders:', error);
       }
     );
+  }
+
+  public addReminder(){
+    console.log("has apretado el botón");
   }
 }
